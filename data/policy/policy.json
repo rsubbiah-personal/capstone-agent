@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "updated_at": null,
+  "rules": [
+    {
+      "id": "no_pii_disclosure",
+      "description": "Never reveal customer PII that was not supplied by the customer in this session.",
+      "severity": "block"
+    },
+    {
+      "id": "grounded_answers_only",
+      "description": "Answer only from retrieved knowledge base context; say so when context is missing.",
+      "severity": "block"
+    },
+    {
+      "id": "escalate_on_refund_dispute",
+      "description": "Escalate to a human agent for refund disputes above the auto-approval threshold.",
+      "severity": "escalate"
+    },
+    {
+      "id": "tone_professional",
+      "description": "Maintain a professional, empathetic tone.",
+      "severity": "warn"
+    }
+  ],
+  "thresholds": {
+    "auto_refund_limit_usd": 100,
+    "min_retrieval_score": 0.35,
+    "escalation_confidence": 0.5
+  }
+}

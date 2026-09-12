@@ -1,0 +1,26 @@
+services:
+  mcp-server:
+    build:
+      context: ..
+    command: python scripts/start_mcp_server.py
+    env_file:
+      - ../.env
+    ports:
+      - "8765:8765"
+    volumes:
+      - ../knowledge:/app/knowledge
+      - ../data:/app/data
+      - ../logs:/app/logs
+
+  agent:
+    build:
+      context: ..
+    command: python scripts/run_agent.py
+    env_file:
+      - ../.env
+    depends_on:
+      - mcp-server
+    volumes:
+      - ../knowledge:/app/knowledge
+      - ../data:/app/data
+      - ../logs:/app/logs

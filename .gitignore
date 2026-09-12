@@ -1,0 +1,17 @@
+.env
+.venv/
+venv/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+logs/*.log
+knowledge/faiss_index/*.faiss
+knowledge/faiss_index/*.pkl
+
+.DS_Store
+.idea/
+.vscode/

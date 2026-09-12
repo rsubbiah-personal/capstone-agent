@@ -1,0 +1,34 @@
+name: capstone-agent
+version: 0.1.0
+
+agent:
+  model: ${LLM_MODEL}
+  temperature: 0.2
+  max_tool_calls: 6
+
+retrieval:
+  index_path: ${FAISS_INDEX_PATH}
+  chunks_path: ${CHUNKS_PATH}
+  embedding_model: ${EMBEDDING_MODEL}
+  chunk_size: ${CHUNK_SIZE}
+  chunk_overlap: ${CHUNK_OVERLAP}
+  top_k: ${TOP_K}
+
+mcp:
+  host: ${MCP_SERVER_HOST}
+  port: ${MCP_SERVER_PORT}
+
+policy:
+  path: data/policy/policy.json
+
+safety:
+  pii_redaction: true
+  guardrails: true
+
+monitoring:
+  langsmith: true
+  langfuse: true
+
+logging:
+  level: ${LOG_LEVEL}
+  dir: ${LOG_DIR}
